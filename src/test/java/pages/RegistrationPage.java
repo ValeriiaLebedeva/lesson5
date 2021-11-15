@@ -29,6 +29,7 @@ public class RegistrationPage {
     SelenideElement stateDropDownMenu = $("[id=state]");
     SelenideElement cityDropDownMenu = $("[id=city]");
     SelenideElement submittingForm = $(byClassName("modal-content"));
+
     //actions
 
     public void openPage() {
