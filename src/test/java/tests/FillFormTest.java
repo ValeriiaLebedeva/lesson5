@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
-public class Tests extends TestBase {
+public class FillFormTest extends TestBase {
 
     Faker faker = new Faker(new Locale("en-US"));
 
@@ -23,8 +23,8 @@ public class Tests extends TestBase {
 
         registrationPage.openPage();
         registrationPage.setFirstNameInput(firstName)
-                .setSecondNameInputNameInput(secondName)
-                .setEmailInputInput(email)
+                .setSecondNameNameInput(secondName)
+                .setEmailInput(email)
                 .setNumberInput(number);
 
         registrationPage.clickOnMaleButton();

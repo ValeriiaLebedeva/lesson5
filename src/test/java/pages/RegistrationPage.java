@@ -42,12 +42,12 @@ public class RegistrationPage {
 
     }
 
-    public RegistrationPage setSecondNameInputNameInput (String value) {
+    public RegistrationPage setSecondNameNameInput(String value) {
         secondNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setEmailInputInput (String value) {
+    public RegistrationPage setEmailInput(String value) {
         emailInput.setValue(value);
         return this;
     }
