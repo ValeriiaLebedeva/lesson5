@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.RegistrationPage;
 
+import static java.lang.String.format;
+
 public class TestBase {
 
     public static CredentialsConfig credentials =
@@ -20,27 +22,16 @@ public class TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
 
 
-//    @Test
-//    void readCredentialsTest() {
-//        String login = credentials.login();
-//        String password = credentials.password();
-
-//        System.out.println(login);
-//        System.out.println(password);
-//        String message = format("i login as %s with password %s", login, password);
-//        System.out.println(message);
-//    }
-
     @BeforeAll
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.startMaximized = true;
-        String value = System.getProperty("url", "https://selenoid.autotests.cloud/");
-        System.out.println(value);
+        String value = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
         String login = credentials.login();
         String password = credentials.password();
+        String url = format("https://%s:%s@%s", login, password, value);
+        Configuration.remote = url;
 
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
@@ -48,7 +39,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
 
-        }
+    }
 
     @AfterEach
     public void tearDown() {
