@@ -36,6 +36,7 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.startMaximized = true;
         String value = System.getProperty("url", "https://selenoid.autotests.cloud/");
+        System.out.println(value);
         String login = credentials.login();
         String password = credentials.password();
 
