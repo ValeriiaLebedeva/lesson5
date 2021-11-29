@@ -26,11 +26,12 @@ public class TestBase {
     static void setup() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.startMaximized = true;
-        String value = System.getProperty("url", "selenoid.autotests.cloud/wd/hub/");
+        String value = System.getProperty("url", "ya.ru");
         String login = credentials.login();
         String password = credentials.password();
-        String url = format("https://%s:%s@%s", login, password, value);
-        Configuration.remote = url;
+        String urlRemote = format("https://%s:%s@%s", login, password, value);
+        Configuration.remote = urlRemote;
+ //     System.out.println(urlRemote);
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
